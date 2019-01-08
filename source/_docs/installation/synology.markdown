@@ -11,16 +11,14 @@ redirect_from: /getting-started/installation-synology/
 ---
 
 <p class="note warning">
-Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can follow the instructions "[Using older Python 3 provided by Synology](#-linkable_title-using-older-python-3-provided-by-synology-)" way below of the document.
+Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can follow the instructions "[Using older Python 3 provided by Synology](#using-older-python-3-provided-by-synology)" at the bottom of this document.
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
 1. Using Docker (Recommended)
 2. Directly running on DSM
 
-Option 1 is described on the [Docker installation page](/docs/installation/docker/#synology-nas), whereas Option 2 is described below.  
-Our recommendation is to run Home Assistant on Docker (If available) or a Raspberri Pi, as the instructions written below are a bit involved.
-
+Option 1 is described on the [Docker installation page](/docs/installation/docker/#synology-nas), whereas Option 2 is described below. Our recommendation is to run Home Assistant on Docker (If available) or a Raspberri Pi, as the instructions written below are a bit involved.
 
 The following configuration has been tested on [Synology DS115j](https://www.synology.com/en-global/products/DS115j) running DSM 6.2.1-23824 Update 1.
 
@@ -103,8 +101,7 @@ Make the Python 3 package for your Synology NAS model, please modify `docker run
 ```bash
 # sudo docker run -it -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean && make setup && make -C spk/python3 arch-XXXX'
 ```
-After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
-It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
+After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*". It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
 
 If you want to remove the Docker container downloaded by `docker run` to save drive space, run the following command:
 ```bash
